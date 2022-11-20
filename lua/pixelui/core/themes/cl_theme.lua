@@ -31,10 +31,9 @@ local function setJoinTheme()
     ip = string.Replace(ip, ".", "_")
     if file.Exists("pixel/themes/" .. ip .. "/theme.txt", "DATA") then
         local theme = file.Read("pixel/themes/" .. ip .. "/theme.txt", "DATA")
-        if theme == "" then theme = "Dark" end
         if not PIXEL.Themes[theme] then
-            ply.PIXELTheme = "Dark"
             PIXEL.Colors = PIXEL.Themes["Dark"]
+            ply.PIXELTheme = "Dark"
             return
         end
 
@@ -49,6 +48,7 @@ local function setJoinTheme()
     if theme == "" then theme = "Dark" end
     if not PIXEL.Themes[theme] then
         ply.PIXELTheme = "Dark"
+
         PIXEL.Colors = PIXEL.Themes["Dark"]
         return
     end
