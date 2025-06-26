@@ -50,12 +50,12 @@ function PANEL:Paint(w, h)
         col = self.OverrideCol
     end
 
-    self.OutlineColor = PulsarUI.LerpColor(FrameTime() * 8, self.OutlineColor, col)
+    local col2 = PulsarUI.LerpColor(FrameTime() * 8, self.OutlineColor, col)
 
     PulsarUI.DrawRoundedBox(6, 0, 0, w, h, self.InnerColor)
 
-    local screenX, screenY = self:LocalToScreen(0, 0)
-    PulsarUI.paint.outlines.drawOutline(6, screenX, screenY, w, h, self.OutlineColor, nil, 2 )
+    local flags = PulsarUI.RNDX.SHAPE_CIRCLE
+    PulsarUI.RNDX.DrawOutlined(6, 0, 0, w, h, col, 2, flags)
 
     if self:GetValue() == "" then
         PulsarUI.DrawSimpleText(self:GetPlaceholderText() or "", "UI.TextEntry", PulsarUI.Scale(10), h / 2, self.PlaceholderTextCol, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)

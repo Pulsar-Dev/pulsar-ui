@@ -79,6 +79,7 @@ function PANEL:Paint(w, h)
     local barH = h - PulsarUI.Scale(4)
 
     PulsarUI.Mask(function()
+            local flags = PulsarUI.RNDX.SHAPE_CIRCLE
             PulsarUI.DrawFullRoundedBox(barH / 2, 0, PulsarUI.Scale(2), w, barH, color_white)
         end,
         function()
@@ -96,9 +97,10 @@ function PANEL:Paint(w, h)
         newX = w - (h / 2)
     end
 
-    local screenX, screenY = self:LocalToScreen(newX - (h / 2), 1)
-    PulsarUI.paint.roundedBoxes.roundedBox(h / 2, screenX, screenY, h, h, self:GetColor())
-    PulsarUI.paint.outlines.drawOutline( h / 2, screenX, screenY, h, h, color_white, nil, 5 )
+    local posX, posY = newX, h / 2 - 1
+    local flags = PulsarUI.RNDX.SHAPE_CIRCLE
+    PulsarUI.RNDX.DrawCircle(posX, posY, 24, self:GetColor(), flags)
+    PulsarUI.RNDX.DrawCircleOutlined(posX, posY, 24, color_white, 4, flags)
 end
 
 vgui.Register("PulsarUI.RGBPicker", PANEL, "EditablePanel")

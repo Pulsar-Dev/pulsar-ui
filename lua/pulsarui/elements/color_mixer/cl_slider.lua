@@ -37,7 +37,7 @@ function PANEL:Init()
     self.KnobColor = color_white
 
     self.Knob.Paint = function(panel, w, h)
-        PulsarUI.DrawOutlinedRoundedBox(h / 2, 0, 0, h, h, self.KnobColor, 8)
+        PulsarUI.DrawOutlinedRoundedBox(h / 2, 0, 0, h, h, self.KnobColor, 4)
     end
 
     self.Knob.OnCursorMoved = function(panel, x, y)

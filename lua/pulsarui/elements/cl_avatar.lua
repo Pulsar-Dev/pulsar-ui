@@ -36,7 +36,7 @@ end
 function PANEL:Paint(w, h)
     PulsarUI.Mask(
         function()
-            PulsarUI.DrawFullRoundedBox(self:GetRounded(), 0, 0, w, h, color_white)
+            PulsarUI.RNDX.Draw(self:GetRounded(), 0, 0, w, h, Color(255, 0, 0, 150), PulsarUI.RNDX.SHAPE_CIRCLE)
         end,
         function()
             self.Avatar:PaintManual()
